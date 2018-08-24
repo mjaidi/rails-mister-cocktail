@@ -1,13 +1,29 @@
-<div class="container">
-  <h1>Cocktails Index</h1>
-  <hr>
-  <%= link_to "New Cocktail", new_cocktail_path %>
-  <hr>
-  <ul class = "list-unstyled">
-    <% @cocktails.each do |cocktail| %>
-    <li>
-      <%= link_to cocktail.name, cocktail_path(cocktail) %>
-    </li>
-    <% end %>
-  </ul>
+<%= render 'partials/banner' %>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card">
+          <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cocktail.image %>');">
+            
+            <div class="card-description">
+              <h2><%= cocktail.name %></h2>
+              <p>Contains: <% cocktail.ingredients.first(3).each do |ingredient| %>
+                <%= ingredient.name %>, 
+                <% end %>
+              </p>
+           </div>
+        <%= link_to cocktail_path(cocktail), class: "card-link" do %>
+        <% end %> 
+        </div>
+        <div class= "card-footer">
+           <%= link_to "Delete", cocktail_path(cocktail), method: :delete, data: {confirm: " Are you sure?"}, class: "delete-link" %> 
+        </div>
+      </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
+

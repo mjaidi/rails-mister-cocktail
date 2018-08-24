@@ -1,0 +1,13 @@
+.delete-link {
+    color: #616668;
+    font-size: 14px;
+      &:hover {
+      color: #da552f;
+      text-decoration: none;
+    }
+  }
+
+.cocktails-btn {
+  margin: 15px;
+  width: 150px;
+}

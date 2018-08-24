@@ -1,3 +1,11 @@
 import 'bootstrap';
+import {bindSweetAlertButtonDelete} from '../pages/alert'
+import { initUpdateNavbarOnScroll } from '../pages/navbar';
+import { loadDynamicBannerText } from '../pages/banner';
 
-console.log('Hello World from Webpacker')
+
+
+bindSweetAlertButtonDelete();
+loadDynamicBannerText();
+initUpdateNavbarOnScroll();
+
